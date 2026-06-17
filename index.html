@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#020817" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#020817; --bg2:#01030a;
@@ -52,6 +52,14 @@
   .mark{display:flex; gap:8px; margin-bottom:26px;}
   .mark span{width:16px;height:16px;border-radius:4px;background:var(--grad);}
   .mark span:nth-child(2){opacity:.66} .mark span:nth-child(3){opacity:.4}
+  .monogram-wrap{flex:1 1 auto;display:flex;align-items:center;justify-content:center;width:100%;min-height:0;}
+  .monogram{
+    font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+    font-weight:900; font-size:clamp(96px,17vw,200px); line-height:1; letter-spacing:.03em;
+    background:linear-gradient(165deg,#f7de8b 0%,#e6b23e 42%,#c9962a 72%,#9c7a22 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 10px 34px rgba(230,178,62,.22));
+  }
 
   .grid{display:grid; gap:16px; margin-top:8px;}
   .g3{grid-template-columns:repeat(3,1fr);}
@@ -155,6 +163,7 @@
     <div class="kicker">Rapid Reach · Closer Training</div>
     <h1 class="title">The Closer's <span class="gold">Playbook</span></h1>
     <p class="lead" style="margin-top:18px;font-size:clamp(17px,2.8vw,22px);color:#cbd5e1;">How we turn a skeptical lead into a signed deal.</p>
+    <div class="monogram-wrap"><div class="monogram">GE</div></div>
     <div class="foot"><p class="kicker" style="margin:0;">Frame · Discovery · Objection Handling · The Close</p></div>
   </section>
 
