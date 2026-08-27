@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>The Film Room &middot; Rapid Reach Closer Training</title>
+<meta name="theme-color" content="#020817" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               radial-gradient(700px 500px at 0% 110%,rgba(234,179,8,.06),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+  .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:44px 20px 120px;}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+  h1{font-size:clamp(30px,6vw,50px);font-weight:900;letter-spacing:-.02em;line-height:1.05;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(15px,2.2vw,18px);margin-top:14px;max-width:760px;}
+  .back{display:inline-block;margin-bottom:26px;font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 15px;}
+  .back:hover{color:var(--gold);border-color:var(--gold);}
+  .sec-h{display:flex;align-items:center;gap:14px;margin:64px 0 20px;padding-top:22px;border-top:1px solid var(--border);}
+  .sec-n{font-family:'Playfair Display',Georgia,serif;font-size:34px;font-weight:900;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;}
+  .sec-h h2{font-size:clamp(21px,3.6vw,30px);font-weight:800;letter-spacing:-.01em;}
+  h3{font-size:19px;font-weight:800;margin:34px 0 12px;color:#fff;}
+  p{color:#cbd5e1;font-size:15.5px;margin:10px 0;}
+  .note{color:var(--muted);font-size:14.5px;}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:17px 19px;margin:14px 0;}
+  .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .why{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.20);border-radius:11px;padding:13px 16px;margin:14px 0;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px;}
+  .tag{font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:999px;padding:5px 12px;border:1px solid var(--border2);color:var(--muted);}
+  .tag.lost{color:#fca5a5;border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.08);}
+  .tag.won{color:#6ee7b7;border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.08);}
+  .tag.link a{color:var(--gold);text-decoration:none;font-weight:800;}
+  .td-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+  @media(max-width:820px){.td-cols{grid-template-columns:1fr;}}
+  .td-col{border-radius:13px;padding:16px 18px;}
+  .td-col.good{background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.25);}
+  .td-col.bad{background:rgba(248,113,113,.05);border:1px solid rgba(248,113,113,.25);}
+  .td-lbl{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;}
+  .td-lbl.good{color:var(--green);} .td-lbl.bad{color:var(--red);}
+  .td-col ul{list-style:none;}
+  .td-col li{font-size:14.5px;line-height:1.5;color:#e2e8f0;margin-bottom:13px;padding-left:2px;}
+  .td-col li b{color:#fff;}
+  .ts{display:inline-block;font-variant-numeric:tabular-nums;font-weight:800;font-size:12px;letter-spacing:.03em;color:#0f172a;background:var(--grad);border-radius:5px;padding:2px 7px;margin-right:7px;}
+  .dlg{margin:16px 0;}
+  .turn{margin:9px 0;font-size:15px;line-height:1.5;display:grid;grid-template-columns:86px 1fr;gap:10px;}
+  .turn .who{font-weight:800;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px;}
+  .turn.c .who{color:var(--gold);} .turn.p .who{color:var(--muted2);}
+  .turn .txt{color:#e2e8f0;font-style:italic;}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  @media(max-width:820px){.vs{grid-template-columns:1fr;}}
+  .vsbox{border-radius:13px;padding:16px 18px;}
+  .vsbox.no{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.28);}
+  .vsbox.yes{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.28);}
+  .vh{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:9px;}
+  .vsbox.no .vh{color:var(--red);} .vsbox.yes .vh{color:var(--green);}
+  .vsbox p{font-size:15px;color:#e2e8f0;margin:6px 0;}
+  .big{font-size:clamp(19px,3.6vw,28px);font-weight:900;line-height:1.2;margin:22px 0;}
+  .score{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;border:1px solid var(--border2);border-radius:12px;overflow:hidden;}
+  .score th{background:#0b1322;text-align:left;padding:11px 13px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2);font-weight:800;}
+  .score td{padding:11px 13px;border-top:1px solid var(--border);color:#e2e8f0;vertical-align:top;}
+  .score td.ph{font-weight:800;color:#fff;white-space:nowrap;}
+  .score td.bx{text-align:center;color:var(--muted2);font-weight:800;white-space:nowrap;}
+  .toc{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
+  .toc a{font-size:13.5px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:7px 14px;}
+  .toc a:hover{color:var(--gold);border-color:var(--gold);}
+  .pend{border:1px dashed var(--border2);border-radius:13px;padding:18px 20px;margin:14px 0;color:var(--muted);font-size:14.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="./">&larr; Back to the Closer Playbook</a>
+  <div class="kicker">Rapid Reach &middot; Closer Training</div>
+  <h1>The <span class="gold">Film Room</span></h1>
+  <p class="lead">Real closing calls, broken down minute by minute. The playbook tells you the seven phases. This page shows you what they sound like when they work, and what it costs when they don't.</p>
+  <p class="lead"><b style="color:#fde68a">How to use this:</b> do not watch a whole call front to back. Read the breakdown first, then jump to the timestamps that matter. You will learn more from six targeted minutes than from a full recording.</p>
+
+  <div class="toc">
+    <a href="#scorecard">The Scorecard</a>
+    <a href="#divine">Teardown 1 &middot; Divine Detailing</a>
+    <a href="#library">Phase Library</a>
+  </div>
+
+  <!-- SCORECARD -->
+  <div class="sec-h" id="scorecard"><span class="sec-n">01</span><h2>Grade every call on this</h2></div>
+  <p>Seven rows, one per phase. Score each out of 2: <b>0</b> did not happen, <b>1</b> attempted, <b>2</b> executed. Fourteen is a perfect call. Anything under 9 and the deal was probably lost before the pitch.</p>
+  <table class="score">
+    <tr><th>Phase</th><th>What you're looking for</th><th>Score</th></tr>
+    <tr><td class="ph">1. Control</td><td>Owned the first 60 seconds. Set the agenda. Got them talking about why they showed up.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">2. Discovery</td><td>Made them say the numbers out loud. Current, goal, and the gap between them.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">3. Budget</td><td>Got their number before quoting yours. Knows what they already spend and on what.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">4. Pitch</td><td>Sold the outcome, not the feature list. <b>One</b> product matched to the pain they named.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">5. The Ask</td><td>Asked for the deal. Asked again. Stopped talking after asking.</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">6. Objections</td><td>Isolated before answering. "Is it the money, the timing, or something else?"</td><td class="bx">/ 2</td></tr>
+    <tr><td class="ph">7. Commitment</td><td>Left with a date and a time on the calendar. Never "I'll reach out."</td><td class="bx">/ 2</td></tr>
+  </table>
+  <div class="why"><div class="lbl">The talk-time rule</div><p>Before you score anything, ask one question: <b>who talked more?</b> On a good discovery call the prospect does 60 to 70 percent of the talking. If the closer did most of it, phases 2 and 3 did not really happen no matter what the scorecard says.</p></div>
+
+  <!-- TEARDOWN 1 -->
+  <div class="sec-h" id="divine"><span class="sec-n">02</span><h2>Teardown 1 &middot; The deal that was won twice and lost anyway</h2></div>
+  <div class="meta">
+    <span class="tag">Divine Detailing Work</span>
+    <span class="tag">Logan Lamb &middot; Greensboro, NC</span>
+    <span class="tag">June 11 &middot; 27 min</span>
+    <span class="tag">Closer: Ryan</span>
+    <span class="tag lost">Result: Lost</span>
+    <span class="tag link"><a href="https://fathom.video/share/d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_" target="_blank" rel="noopener">▶ Recording</a></span>
+  </div>
+  <p class="note">Scorecard: Control 2, Discovery 2, Budget 2, Pitch 0, Ask 1, Objections 0, Commitment 0. <b style="color:#fca5a5">7 of 14.</b> The front half of this call is close to perfect. The back half gives all of it away.</p>
+
+  <h3>Why this call is worth 20 minutes of your time</h3>
+  <p>The prospect said the offer was a no-brainer <b>in the first thirty seconds</b>. He said yes to buying <b>at 14:48</b>. He confirmed again <b>at 17:32</b>. And he still did not pay. Almost nobody loses a deal this cleanly, which is exactly what makes it teachable.</p>
+
+  <div class="td-cols">
+    <div class="td-col good">
+      <div class="td-lbl good">What Ryan did right</div>
+      <ul>
+        <li><span class="ts">0:14</span><b>Opened by making the prospect sell himself.</b> "What made you want to hop on this call? What about our offer stood out to you?" Logan answered "the percentage I'd be losing per job isn't terrible, and the amount of jobs I'd be getting, it's kind of a no-brainer." Never pitch to a man who just told you he's already sold.</li>
+        <li><span class="ts">2:50</span><b>Got current, goal, and gap out loud.</b> "What revenue are you sitting at per month, and what's the goal?" $4K now, $6K target. Then he said the gap back: "So about $2,000?" That is phase 2 executed exactly as written.</li>
+        <li><span class="ts">3:12</span><b>Ran a business audit before the call.</b> Knew the Instagram had 5,000 followers and complimented the video quality specifically. Preparation reads as respect.</li>
+        <li><span class="ts">4:06</span><b>Chained the CRM diagnostic.</b> Do you track leads, what software, can you mass text. Three questions, each narrowing. Found a real hole instead of assuming one.</li>
+        <li><span class="ts">8:13</span><b>Screen shared instead of describing.</b> Pulled up Matrix Mobile Detailing live, showed the promo, the ceramic page, the memberships. Demo, don't debate.</li>
+        <li><span class="ts">20:58</span><b>The best moment in the call.</b> "How many leads did he bring you last month?" Two bookings. Then "Do you pay him up front?" $950 a month. He surfaced that this man is burning $950 a month for two jobs.</li>
+      </ul>
+    </div>
+    <div class="td-col bad">
+      <div class="td-lbl bad">What cost him the deal</div>
+      <ul>
+        <li><span class="ts">4:33</span><b>He talked roughly three quarters of a 27 minute call.</b> The stretch from 8:13 to 13:57 is nearly six unbroken minutes of Ryan. A doctor asks and listens. This became a lecture.</li>
+        <li><span class="ts">4:33</span><b>He talked the buyer out of the thing the buyer already wanted.</b> Logan came in pre-sold on lead gen. Ryan said the competition was too heavy and pivoted to website and software instead. <b>This is the fatal move.</b> He replaced a yes with a harder sell.</li>
+        <li><span class="ts">6:00</span><b>He pitched three products.</b> Website, then software, then Google ads later. By 13:57 Logan could not have told you what he was being asked to buy.</li>
+        <li><span class="ts">21:36</span><b>He never used the $950 anchor.</b> Logan is paying $950 a month for two bookings. Our lead gen costs nothing up front. That comparison was sitting right there and never got made.</li>
+        <li><span class="ts">14:48</span><b>He got a yes and kept talking.</b> "If it's going to help get me where I want to go, I don't see why not" is a yes. So is "I get what you're saying, a hundred percent" at 17:32. Both times he kept selling instead of collecting.</li>
+        <li><span class="ts">17:37</span><b>He put a monologue between the yes and the invoice.</b> Forty seconds about the owner being busy and needing payment first, right after a man told him he'd been burned by agencies.</li>
+        <li><span class="ts">18:16</span><b>He never isolated the objection.</b> "Time-wise right now that wouldn't work out best for me" went unexamined. Nobody asked whether it was the timing or the money.</li>
+        <li><span class="ts">24:39</span><b>He ended with "I'll reach out."</b> No date, no time, no next call. Phase 7 of our own playbook says never do this, and it is exactly how this ended.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>The exact 90 seconds where it was lost</h3>
+  <div class="dlg">
+    <div class="turn c"><span class="who">Ryan</span><span class="txt">"So the way that's kind of like, are you looking to get that software in place?"</span></div>
+    <div class="turn p"><span class="who">Logan</span><span class="txt">"I mean, if it's going to help and get me to where I want to go, then I don't see why not."</span></div>
+    <div class="turn c"><span class="who">Ryan</span><span class="txt">"Yeah, 100%. I can set you up a call. The software, it's just $300 a month..."</span></div>
+  </div>
+  <div class="why"><div class="lbl">Stop right there</div><p>That was the sale. The correct next sentence is nine words long: <b>"Perfect, what's the best email for the invoice?"</b> Instead the call ran eleven more minutes, and in those eleven minutes Logan talked himself back out of it.</p></div>
+
+  <h3>The $950 he left on the table</h3>
+  <div class="vs">
+    <div class="vsbox no">
+      <div class="vh">What Ryan pitched</div>
+      <p>$300/month software, <b>on top of</b> the $950/month Logan is already paying an agency that produced two bookings.</p>
+      <p class="note" style="margin-top:8px;">Total ask: $1,250 a month from a man doing $4,000 a month.</p>
+    </div>
+    <div class="vsbox yes">
+      <div class="vh">What was available</div>
+      <p>"You're paying $950 a month for two bookings. We don't charge anything up front, you pay per qualified lead. What would you rather have that $950 doing?"</p>
+      <p class="note" style="margin-top:8px;">Same product he came in pre-sold on. Funded by money he's already losing.</p>
+    </div>
+  </div>
+
+  <div class="big gold">Sell them the thing they already said yes to. Then stop talking and collect.</div>
+
+  <div class="why"><div class="lbl">One thing that has changed since this call</div><p>Ryan pitches Meta ads for ceramics at 3:00 and again at 22:00. <b>We no longer sell Meta.</b> That partnership ended. The equivalent today is Google Pay Per Click. Ignore that thread when you watch.</p></div>
+
+  <!-- PHASE LIBRARY -->
+  <div class="sec-h" id="library"><span class="sec-n">03</span><h2>Phase Library</h2></div>
+  <p>The fastest way to learn a single move is to watch it run four different ways back to back. As calls come in, each phase below fills with timestamped clips pulled from real recordings.</p>
+  <div class="pend"><b style="color:#fde68a">Phase 1 &middot; Control</b><br>Best example so far: Divine Detailing at <b>0:14</b>, the "what stood out to you about our offer" open.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 2 &middot; Discovery</b><br>Best example so far: Divine Detailing at <b>2:50</b>, current to goal to gap.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 3 &middot; Budget</b><br>Best example so far: Divine Detailing at <b>20:58</b>, uncovering the $950 spend and the two bookings.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 4 &middot; The Pitch</b><br>Need a clean example. Divine Detailing is the counter-example.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 5 &middot; The Ask</b><br>Need a call where the closer asked and then went silent.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 6 &middot; Objections</b><br>Need a call with a real price objection isolated properly.</div>
+  <div class="pend"><b style="color:#fde68a">Phase 7 &middot; Commitment</b><br>Need a call that ended with a booked date instead of a promise to follow up.</div>
+
+</div>
+</body>
+</html>
