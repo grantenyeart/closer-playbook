@@ -81,6 +81,22 @@
 
   .howto{color:var(--muted2);font-size:13px;margin-top:20px;padding-left:2px;}
 
+  .taught{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border2);
+    border-left:3px solid var(--gold);border-radius:12px;padding:14px 17px;margin:16px 0 6px;}
+  .taught .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+  .taught q{display:block;color:#fff;font-size:15px;font-style:italic;font-weight:500;line-height:1.5;}
+  .taught q:before,.taught q:after{content:'"';}
+
+  .gap{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.28);border-radius:12px;padding:14px 17px;margin:16px 0;}
+  .gap .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+  .gap p{color:#e2e8f0;font-size:14.5px;}
+
+  .move{font-size:11px;font-weight:800;letter-spacing:.06em;color:#0f172a;background:var(--grad);
+    border-radius:999px;padding:3.5px 10px;}
+  .clip.ce .move{background:linear-gradient(135deg,#f87171,#ef4444);color:#fff;}
+  .clip.pt .move{background:none;color:var(--muted);border:1px dashed var(--border2);}
+  .clip.pt{border-left-color:var(--muted2);}
+
   /* footer nav */
   .fnav{margin-top:46px;padding-top:24px;border-top:1px solid var(--border);
     display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
@@ -117,7 +133,9 @@
   <h1 id="h1"></h1>
   <p class="lead" id="lead"></p>
 
+  <div class="taught"><div class="lbl">The move this phase teaches</div><q id="taughtq"></q></div>
   <div class="look"><div class="lbl">What you're listening for</div><p id="look"></p></div>
+  <div class="gap" id="gap"></div>
   <p class="howto">Each clip opens the real recording in a new tab at the exact second. Watch the window shown, then close that tab and you are right back here.</p>
 
   <div class="cnt" id="cnt"></div>
@@ -145,110 +163,119 @@ const C={
 };
 
 // ---- phases, in deck order ----
+// every clip names the STEP of the taught framework it demonstrates.
+// if you cannot name the step, the clip does not belong on that phase.
 const P={
  1:{name:'Control', h:'Own the first 60 seconds', slide:3,
-    look:'Who sets the agenda in the first minute. A closer who opens with a question or a risk reversal keeps the frame all call. A closer who opens with features never gets it back.',
+    taught:'Hey [name], before we dive in, here\u2019s how I run these calls: I\u2019ll ask you a handful of questions so I actually understand your business, then I\u2019ll tell you straight whether we\u2019re a fit. Sound fair?',
+    look:'Who sets the agenda in the first minute. The move is the pre-frame: you state how the call will run, you promise to be straight, and you ask permission. That is what buys you the right to push back forty minutes later.',
+    gap:'<b>No recording in this library actually runs the pre-frame.</b> Not one of the six opens by stating the agenda and asking "sound fair?". The two clips below own the first minute in other ways and are worth studying, but neither is the move on the slide. If you have a call where you open with the pre-frame, it belongs here and it replaces both.',
     clips:[
-     {c:'beastly',t:'0:00',e:'1:40',ti:'The founder story, aimed at this exact prospect',
-      w:'Started detailing in high school, door to door, $700 a month, scaled to $10K off Google ads. Davis is a one man team still in school. <b>The credibility story contained the prospect’s own starting point,</b> which is the only reason it did not sound like a brag.'},
-     {c:'summit',t:'0:32',e:'1:20',ti:'Risk reversal before anything else',
-      w:'"We show companies what we do before we ask for a dime." The frame is set before a single discovery question gets asked.'},
-     {c:'divine',t:'0:14',e:'1:10',ti:'Making the prospect sell himself',
-      w:'"What about our offer stood out to you?" He answers, and now <b>he</b> is the one on record saying why this matters.'},
-     {c:'summit',t:'35:52',e:'36:30',ti:'The prospect asks his name 36 minutes in',ce:1,
-      w:'Control is not only the opening. <b>Introduce yourself.</b>'}
+     {c:'divine',t:'0:14',e:'1:10',m:'Opens with a question',pt:1,ti:'Making the prospect state the reason himself',
+      w:'"What about our offer stood out to you?" He answers, and now <b>he</b> is on record saying why this matters. <b>Not the pre-frame,</b> but it is the right instinct: open by asking, not by pitching.'},
+     {c:'summit',t:'0:32',e:'1:20',m:'Risk off the table',pt:1,ti:'Risk reversal before anything else',
+      w:'"We show companies what we do before we ask for a dime." Lowers resistance before a single question. <b>Closer to an offer statement than an agenda,</b> so treat it as a way to earn the frame, not as the frame itself.'},
+     {c:'summit',t:'35:52',e:'36:30',m:'No frame was ever set',ce:1,ti:'The prospect asks his name 36 minutes in',
+      w:'This is what skipping Phase 1 sounds like half an hour later. <b>He never introduced himself and never set the terms,</b> so he spent the whole call as a vendor instead of an authority.'}
     ]},
  2:{name:'Discovery', h:'Make them say the number out loud', slide:4,
-    look:'Who is doing the talking. On real discovery the prospect carries 60 to 70 percent of it. Count how often the closer asks instead of tells.',
+    taught:'Where are you now? Where do you want to be? So the gap is about X per week.',
+    look:'Three numbers have to end up on the table in their words: current, goal, and the gap. The gap is the thing you sell to. If you never got all three, Phase 2 did not happen.',
     clips:[
-     {c:'summit',t:'2:24',e:'4:47',ti:'The full arc, start to finish',
-      w:'Volume, capacity, daily target, weekly revenue, then the goal. <b>Five answers, almost no talking.</b> This is the one to copy.'},
-     {c:'beastly',t:'1:04',e:'2:45',ti:'The amount and the duration, not just the fact',
-      w:'$150 on Google "until it ran out." $3,000 into Instagram over a year. <b>"It didn’t work" is not discovery.</b> The number and the timeline are, and both get used later in the call.'},
-     {c:'divine',t:'2:50',e:'3:40',ti:'Current, goal, gap in three questions',
-      w:'$4K now, $6K wanted, "so about $2,000?" Fifty seconds to the whole picture.'},
-     {c:'beastly',t:'3:17',e:'3:45',ti:'Capacity commitment before a price exists',
-      w:'"Could you take on 8 by the end of next week?" Answer: "A hundred percent. Let’s go." <b>The yes on the outcome was locked in twelve minutes before the number showed up.</b>'}
+     {c:'divine',t:'2:50',e:'3:40',m:'Current \u2192 Goal \u2192 Gap',ti:'The whole phase in three questions',
+      w:'$4K now, $6K wanted, "so about $2,000?" <b>Fifty seconds, all three numbers, out of the prospect\u2019s mouth.</b> This is the slide, run live. Start here.'},
+     {c:'summit',t:'2:24',e:'4:47',m:'Current \u2192 Goal \u2192 Gap',ti:'The long version, with capacity built in',
+      w:'Volume, capacity, daily target, weekly revenue, then the goal. Same three numbers, taken slower and wider. <b>Count how little the closer talks.</b>'},
+     {c:'beastly',t:'3:17',e:'3:45',m:'Trial close on the gap',ti:'Confirming they can absorb the gap before you sell it',
+      w:'"Could you take on 8 by the end of next week?" Answer: "A hundred percent. Let\u2019s go." <b>The yes on the outcome was locked in twelve minutes before the number showed up.</b>'}
     ]},
  3:{name:'Budget', h:'Get their number before you quote yours', slide:6,
-    look:'Where the price comes from. If it comes off our sheet you are defending it. If it comes out of their mouth you are confirming it.',
+    taught:'What have other companies quoted you for this? Or what would you put toward the right partner? Then shut up. First one to talk loses.',
+    look:'Whether he asked and then went quiet, and whether the number he got became the anchor. Finding their budget and not using it is the same as never asking.',
     clips:[
-     {c:'summit',t:'1:14',e:'2:00',ti:'The competitor’s price inside two minutes',
-      w:'He had the number before minute three, then used it as the anchor for the rest of the call.'},
-     {c:'summit',t:'6:43',e:'7:40',ti:'Deriving our fee from their ticket',
-      w:'"What would you quote me?" then ten percent of the middle. <b>The price came out of the prospect’s mouth,</b> so there was nothing to argue with.'},
-     {c:'beastly',t:'8:03',e:'9:00',ti:'His menu before our price',
-      w:'$100 basic, $200 premium, $280 to $350 deep interior. Every ROI number for the rest of the call gets built out of Davis’s own menu.'},
-     {c:'beastly',t:'14:38',e:'15:30',ti:'Price quoted in their own product',
-      w:'"<b>Three details covers your entire month.</b>" Best line in the library. Nobody argues with a price stated in a unit they already sell every week.'},
-     {c:'divine',t:'20:58',e:'21:45',ti:'The $950 that was found and never used',ce:1,
-      w:'He learned exactly what the prospect already pays, twenty one minutes in, and <b>did nothing with it.</b>'}
+     {c:'summit',t:'6:43',e:'7:40',m:'Ask, then go silent',ti:'The move exactly as written on the slide',
+      w:'"What would you quote me?" then silence. <b>The price came out of the prospect\u2019s mouth,</b> so there was nothing left to argue with. Start here.'},
+     {c:'summit',t:'1:14',e:'2:00',m:'Anchor to their wallet',ti:'The competitor\u2019s price inside two minutes',
+      w:'He had the number before minute three and anchored every figure to it for the next fifty.'},
+     {c:'beastly',t:'1:04',e:'2:45',m:'What they already spend',ti:'The amount and the duration, not just the fact',
+      w:'$150 on Google "until it ran out." $3,000 into Instagram over a year. <b>"It didn\u2019t work" is not a budget answer.</b> The number and the timeline are, and they prove he will spend.'},
+     {c:'beastly',t:'8:03',e:'9:00',m:'Their ticket before our price',ti:'His menu first',
+      w:'$100 basic, $200 premium, $280 to $350 deep interior. Every number for the rest of the call gets built out of his own menu.'},
+     {c:'divine',t:'20:58',e:'21:45',m:'Asked, then ignored the answer',ce:1,ti:'The $950 that was found and never used',
+      w:'He learned exactly what the prospect already pays, twenty one minutes in, and <b>never anchored to it.</b> Getting the number is half the move.'}
     ]},
  4:{name:'The Pitch', h:'Sell the dream, not the dashboard', slide:7,
-    look:'One product, aimed at the pain they just named. Every extra product you add is another reason to say no.',
+    taught:'Story: a detailer just like you went from X to Y. Math: 5 extra jobs a week times your ticket. Vision: phone booked by 8am, home by 5, winter handled.',
+    look:'Three legs, S, M and V. Story gives them someone to be, Math makes it undeniable, Vision makes it theirs. A pitch missing a leg is a feature list.',
     clips:[
-     {c:'beastly',t:'4:40',e:'6:20',ti:'The pay per click pitch, best version we have',
-      w:'Meta interrupts a scroll so you get volume without intent. Google is somebody typing the need. Then he proves it with his own week, moving to Florida and searching for a house cleaner. <b>Learn this one by heart.</b>'},
-     {c:'beastly',t:'6:26',e:'7:40',ti:'The qualification downsell',
-      w:'At 22 reviews he takes lead gen <b>off</b> the table and says exactly why. Listen to the very next sentence: "You seem pretty young and trustworthy, I’m just going to go out on a limb and trust it."'},
-     {c:'summit',t:'5:22',e:'6:40',ti:'Matched to the bottleneck the prospect named',
-      w:'One product, aimed at the thing he complained about ninety seconds earlier, with proof at his scale.'},
-     {c:'summit',t:'45:55',e:'47:10',ti:'The bundle',
-      w:'The discount is tied to taking all three, not to pressure or a deadline.'},
-     {c:'beastly',t:'13:10',e:'14:30',ti:'Bundled as a subtraction, not an addition',
+     {c:'beastly',t:'0:00',e:'1:40',m:'S \u00b7 Story',ti:'"A detailer just like you," told properly',
+      w:'Started detailing in high school, door to door, $700 a month, scaled to $10K off Google ads, then two vans and four employees. Davis is a one man team still in school. <b>The story contained the prospect\u2019s own starting point,</b> which is the only reason it worked instead of sounding like a brag. <b>This is the Story leg, and it is the best one we have.</b>'},
+     {c:'beastly',t:'14:38',e:'15:30',m:'M \u00b7 Math',ti:'Price quoted in their own product',
+      w:'"<b>Three details covers your entire month.</b>" Best Math line in the library. Nobody argues with a cost stated in a unit they already sell every week.'},
+     {c:'summit',t:'5:22',e:'6:40',m:'V \u00b7 Vision',ti:'Aimed at the bottleneck he named ninety seconds earlier',
+      w:'One product, pointed at the exact thing he just complained about, with proof at his scale. <b>He sold the outcome, not the tool.</b>'},
+     {c:'beastly',t:'13:10',e:'14:30',m:'M \u00b7 Math',ti:'Priced as a subtraction, not an addition',
       w:'The growth system replaces software he already pays $60 to $80 a month for, so adding it reads as <b>saving</b> money. Then the Road Warrior proof: 2 monthly members to 16 in one month off one text.'},
-     {c:'divine',t:'4:33',e:'5:30',ti:'Talking the buyer off the product he already wanted',ce:1,
-      w:'Same move as Beastly 6:26, with <b>no reason attached.</b> That one bought trust. This one lost the deal.'}
+     {c:'beastly',t:'4:40',e:'6:20',m:'Mechanism, not S/M/V',pt:1,ti:'Why Google beats Meta for detailing',
+      w:'Meta interrupts a scroll so you get volume without intent. Google is somebody typing the need. <b>This is explanation, not pitch,</b> so it does not replace Story or Math. Use it when a prospect has been burned on Facebook ads and needs to know why this is different.'},
+     {c:'divine',t:'4:33',e:'5:30',m:'Sold the dashboard',ce:1,ti:'Talking the buyer off the product he already wanted',
+      w:'No Story, no Math, no Vision, and no reason given for the switch. Compare it to Beastly 6:26 in Phase 1\u2019s sibling move: <b>that one gave the why and bought trust, this one just took the product away</b> and lost the deal.'}
     ]},
  5:{name:'The Ask', h:'Ask for the deal, 3 times', slide:8,
-    look:'Whether he actually asked, and whether he stopped talking afterward. Most lost deals on this page were lost after the yes, not before it.',
+    taught:'Assumptive: only two things left, send your COI and we go live Friday, best email? Hard assumptive: I have the agreement open, spell your LLC name for me. Two-option: start Monday, or wait 8 weeks and start cold. Which one?',
+    look:'Did he ask, did he ask in a form that assumes the sale, and did he stop talking afterward. Most deals on this page were lost after the yes, not before it.',
+    gap:'<b>This is the thinnest phase in the library and the most important one.</b> We have one real ask. There is no hard assumptive ("spell your LLC name for me") and no two-option close anywhere in these six recordings. Two of the three clips here are failures. <b>If you have a call where you ran a hard assumptive or a two-option close, it is the single most valuable recording you could add.</b>',
     clips:[
-     {c:'summit',t:'52:35',e:'53:40',ti:'The ask, then the link, on the call',
-      w:'"I can send it, you ready?" Then the Square link goes out while they are still talking. <b>No "I’ll email it over."</b>'},
-     {c:'divine',t:'14:48',e:'16:00',ti:'A clear yes, then eleven more minutes of selling',ce:1,
-      w:'He had the deal and kept talking until it came apart. <b>When they say yes, stop.</b>'},
-     {c:'beastly',t:'23:21',e:'24:30',ti:'Financed instead of isolated',ce:1,
-      w:'$750 was out of range and he was on a payment plan within one turn. Two minutes earlier the prospect had already said part of it was trust, not money. <b>Financing answered the amount and left the real objection untouched.</b>'}
+     {c:'summit',t:'52:35',e:'53:40',m:'Assumptive',ti:'The ask, then the link, while still on the call',
+      w:'"I can send it, you ready?" Then the Square link goes out before the call ends. <b>No "I\u2019ll email it over tonight."</b>'},
+     {c:'divine',t:'14:48',e:'16:00',m:'Asked, then kept selling',ce:1,ti:'A clear yes, then eleven more minutes',
+      w:'He had the deal and talked until it came apart. <b>When they say yes, stop.</b>'},
+     {c:'divine',t:'24:39',e:'25:30',m:'Never asked at all',ce:1,ti:'The call that ended without an ask',
+      w:'Fifty minutes, a warm buyer, and no version of "are you ready" ever left his mouth. <b>You have not sold until you have asked them to buy.</b>'}
     ]},
  6:{name:'Objections', h:'Isolate before you answer', slide:9,
-    look:'Whether he found out what the objection actually was before answering it. "Is it the money, the timing, or something else?" is the whole phase.',
+    taught:'Isolate: other than that, is there anything else stopping us today? Confirm: so if I solve that, we move forward today, yes? Then swing once, with precision.',
+    look:'Whether he found out what the objection actually was before answering it. Isolate, confirm, then one swing. Answering the first thing they say is how you end up swinging five times.',
     clips:[
-     {c:'lives',t:'36:00',e:'38:51',ti:'The benchmark. Five probes, then a clean release',
+     {c:'lives',t:'36:00',e:'38:51',m:'1 \u00b7 Isolate',ti:'The benchmark. Five probes, then a clean release',
       w:'<b>The single best three minutes in the library.</b> Five separate tests, the answer held every time, so he accepted it, took the yes that existed, and kept the relationship. Watch all of it.'},
-     {c:'lives',t:'8:14',e:'9:30',ti:'A belief dissolved instead of argued',
-      w:'"My market won’t pay more than $129." He did not fight it. He asked how many calls a day the guy gets, and the belief fell apart on its own.'},
-     {c:'summit',t:'40:00',e:'43:00',ti:'The live demo',
+     {c:'summit',t:'15:30',e:'16:30',m:'1 \u00b7 Isolate',ti:'"I refuse AI," answered with a question',
+      w:'Not a rebuttal. A question. The objection dissolves without ever being argued with.'},
+     {c:'lives',t:'8:14',e:'9:30',m:'3 \u00b7 Swing',ti:'A belief dissolved instead of argued',
+      w:'"My market won\u2019t pay more than $129." He did not fight it. He asked how many calls a day the guy gets, and the belief fell apart on its own. <b>One swing, at the real cause.</b>'},
+     {c:'summit',t:'40:00',e:'43:00',m:'3 \u00b7 Swing',ti:'The live demo. Show, do not debate',
       w:'Highest leverage three minutes in either Summit recording. <b>He stopped explaining and showed it.</b>'},
-     {c:'summit',t:'15:30',e:'16:30',ti:'"I refuse AI," answered with a question',
-      w:'Not a rebuttal. A question. Notice the objection dissolves without ever being argued with.'},
-     {c:'summit',t:'20:58',e:'22:10',ti:'The gatekeeper reframe',
+     {c:'summit',t:'20:58',e:'22:10',m:'3 \u00b7 Swing',ti:'The gatekeeper reframe',
       w:'A product he had already refused became acceptable by changing what it was <b>for.</b>'},
-     {c:'summit',t:'36:55',e:'38:00',ti:'Downsell allowed, with the cost of waiting attached',
+     {c:'summit',t:'36:55',e:'38:00',m:'3 \u00b7 Swing',ti:'Downsell allowed, with the cost of waiting attached',
       w:'He said yes to less and made the delay expensive in the same breath.'},
-     {c:'summit2',t:'2:00',e:'3:30',ti:'Holding a discount under pressure',
+     {c:'summit2',t:'2:00',e:'3:30',m:'3 \u00b7 Swing',ti:'Holding a discount under pressure',
       w:'Asked to cut the rate again, he restated the <b>undiscounted</b> number. The prospect talked himself back to the original deal.'},
-     {c:'summit2',t:'5:30',e:'6:40',ti:'Refusing a guarantee he could not back',
+     {c:'summit2',t:'5:30',e:'6:40',m:'3 \u00b7 Swing',ti:'Refusing a guarantee he could not back',
       w:'He said no to a promise he could not keep and kept the deal anyway.'},
-     {c:'beastly',t:'29:40',e:'30:30',ti:'"It’s almost too good to be true"',
+     {c:'beastly',t:'29:40',e:'30:30',m:'3 \u00b7 Swing',ti:'"It\u2019s almost too good to be true"',
       w:'"I can make it more expensive if you want me to." <b>Timing is everything on that line.</b>'},
-     {c:'beastly',t:'30:32',e:'31:50',ti:'The ad budget objection, answered before it was raised',
+     {c:'beastly',t:'30:32',e:'31:50',m:'Pre-empt',ti:'The ad budget objection, answered before it was raised',
       w:'Their Google account, their card, their app, our flat fee either way. Say this before they think to ask.'},
-     {c:'beastly',t:'17:43',e:'19:20',ti:'An objection the setter invented out of nothing',ce:1,
-      w:'"The main reason I was okay with going with y’all is because y’all had the two weeks free." <b>Nine minutes of this call went to undoing one sentence a setter said on the phone.</b> This is why setters do not quote terms.'}
+     {c:'beastly',t:'23:21',e:'24:30',m:'Skipped Isolate entirely',ce:1,ti:'Financed an objection instead of isolating it',
+      w:'$750 was out of range and he was on a payment plan within one turn. <b>Two minutes earlier the prospect had already said part of it was trust, not money.</b> One "other than the money, is there anything else?" would have found it. Financing answered the wrong objection.'},
+     {c:'beastly',t:'17:43',e:'19:20',m:'An objection we created',ce:1,ti:'The setter sold two weeks free',
+      w:'"The main reason I was okay with going with y\u2019all is because y\u2019all had the two weeks free." <b>Nine minutes of this call went to undoing one sentence a setter said on the phone.</b>'}
     ]},
- 7:{name:'Commitment', h:'Never end with "I’ll reach out"', slide:13,
-    look:'Whether the call ends with a date on a calendar, and who owns the next step. "Text me whenever" means the deal is the prospect’s problem now.',
+ 7:{name:'Commitment', h:'Never end with "I\u2019ll reach out"', slide:13,
+    taught:'Every call ends one of three ways: closed today, a booked next step with a date and time on the calendar now, or a future-dated firm follow-up they agree to.',
+    look:'Which of the three endings it was. If you cannot name one, the call ended the fourth way, which is no way at all.',
     clips:[
-     {c:'lives',t:'55:20',e:'56:30',ti:'The model to copy',
+     {c:'lives',t:'55:20',e:'56:30',m:'2 \u00b7 Booked next step',ti:'The model to copy',
       w:'A booked two week ROI review with a stated purpose: here is what you spent, here is what you made. <b>A date, a reason, and the prospect wants the meeting.</b>'},
-     {c:'summit2',t:'24:00',e:'25:30',ti:'The commitment as a numbered chain',
+     {c:'summit2',t:'24:00',e:'25:30',m:'1 \u00b7 Closed today',ti:'The commitment as a numbered chain',
       w:'You sign, then I send the payment plan, then I send the invoice. He knows the order, the timing, and who owns each step.'},
-     {c:'summit',t:'53:36',e:'54:30',ti:'Agreement forms sent while still on the call',
-      w:'Sent during, confirmed received, not "I’ll get that over to you tonight."'},
-     {c:'beastly',t:'44:02',e:'45:20',ti:'A deal protected, but not landed',
-      w:'Same time tomorrow, personal cell number, intake form sent so the build starts before the money clears. <b>Do all of this. Then still close on the first call.</b>'},
-     {c:'divine',t:'24:39',e:'25:30',ti:'"I’ll reach out"',ce:1,
-      w:'No sequence, no owner, no time. <b>The deal died right here</b> and the call sounded fine.'}
+     {c:'summit',t:'53:36',e:'54:30',m:'1 \u00b7 Closed today',ti:'Agreement forms sent while still on the call',
+      w:'Sent during, confirmed received. Not "I\u2019ll get that over to you tonight."'},
+     {c:'beastly',t:'44:02',e:'45:20',m:'2 \u00b7 Booked next step',ti:'A deal protected, but not landed',
+      w:'Same time tomorrow, personal cell, intake form sent so the build starts before the money clears. <b>Do all of this. Then still close on the first call.</b>'},
+     {c:'divine',t:'24:39',e:'25:30',m:'None of the three',ce:1,ti:'"I\u2019ll reach out"',
+      w:'No sequence, no owner, no time. <b>The deal died right here</b> and the call sounded fine while it happened.'}
     ]}
 };
 
@@ -264,6 +291,9 @@ document.getElementById('kick').textContent='Watch · Phase '+n+' · '+ph.name;
 document.getElementById('h1').innerHTML='Phase '+n+' <span class="gold">'+ph.name+'</span>';
 document.getElementById('lead').textContent=ph.h;
 document.getElementById('look').innerHTML=ph.look;
+document.getElementById('taughtq').innerHTML=ph.taught;
+if(ph.gap){document.getElementById('gap').innerHTML='<div class="lbl">Missing from this library</div><p>'+ph.gap+'</p>';}
+else{document.getElementById('gap').style.display='none';}
 document.getElementById('barPh').textContent='Phase '+n+' · '+ph.name;
 document.getElementById('donesub').textContent='Takes you straight back to Phase '+n+' in the playbook.';
 document.title='Watch Phase '+n+' · '+ph.name+' · Rapid Reach';
@@ -274,14 +304,14 @@ document.getElementById('cnt').textContent=ph.clips.length+' clip'+(ph.clips.len
 
 document.getElementById('clips').innerHTML=ph.clips.map(c=>{
   const r=C[c.c];
-  return '<a class="clip'+(c.ce?' ce':'')+'" target="_blank" rel="noopener" '+
+  return '<a class="clip'+(c.ce?' ce':'')+(c.pt?' pt':'')+'" target="_blank" rel="noopener" '+
    'href="https://fathom.video/share/'+r.id+'?timestamp='+sec(c.t)+'">'+
    '<div class="ctop"><div class="pmark">▶</div>'+
      '<div class="ctitle">'+c.ti+'</div>'+
      '<div class="crange"><b>'+c.t+' – '+c.e+'</b><span>'+Math.round(sec(c.e)-sec(c.t))+' sec</span></div>'+
    '</div>'+
    '<div class="cwatch">'+c.w+'</div>'+
-   '<div class="cmeta">'+(c.ce?'<span class="tag ce">Counter-example</span>':'')+
+   '<div class="cmeta"><span class="move">'+c.m+'</span>'+(c.ce?'<span class="tag ce">Counter-example</span>':'')+
      '<span class="tag">'+r.n+'</span><span class="tag">'+r.w+'</span>'+
      '<span class="tag '+r.r+'">'+r.res+'</span></div></a>';
 }).join('');
