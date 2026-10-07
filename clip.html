@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Watch The Phase &middot; Rapid Reach Closer Training</title>
+<meta name="theme-color" content="#020817" />
+<link rel="icon" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#020817; --bg2:#01030a; --card:#0b1322; --card2:#101c33;
+    --border:#1e293b; --border2:#27364b; --text:#f8fafc; --muted:#94a3b8; --muted2:#64748b;
+    --gold:#f59e0b; --gold2:#eab308; --green:#34d399; --red:#f87171;
+    --grad:linear-gradient(135deg,#f59e0b,#eab308);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 85% -10%,rgba(245,158,11,.10),transparent 60%),
+               radial-gradient(700px 500px at 0% 110%,rgba(234,179,8,.06),transparent 60%),
+               linear-gradient(180deg,var(--bg),var(--bg2));}
+
+  /* sticky done bar */
+  .bar{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+    background:rgba(2,8,23,.86);border-bottom:1px solid var(--border);}
+  .bar-in{max-width:900px;margin:0 auto;padding:11px 18px;display:flex;align-items:center;gap:12px;}
+  .done{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;
+    background:var(--grad);color:#0f172a;font-weight:800;font-size:13.5px;letter-spacing:.01em;
+    border:0;border-radius:999px;padding:9px 17px;text-decoration:none;cursor:pointer;
+    transition:transform .15s ease,filter .15s ease;}
+  .done:hover{transform:translateY(-1px);filter:brightness(1.08);}
+  .bar-ph{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-left:auto;text-align:right;}
+
+  .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:34px 18px 110px;}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+  h1{font-size:clamp(27px,5.4vw,44px);font-weight:900;letter-spacing:-.02em;line-height:1.06;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{color:var(--muted);font-size:clamp(14.5px,2.1vw,17px);margin-top:13px;max-width:720px;}
+
+  .look{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.20);border-radius:12px;padding:14px 17px;margin:24px 0 6px;}
+  .look .lbl{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .look p{color:#e2e8f0;font-size:14.5px;}
+
+  .cnt{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);margin:34px 0 12px;}
+
+  /* clip card */
+  .clip{display:block;text-decoration:none;color:inherit;
+    background:linear-gradient(180deg,var(--card),var(--card2));
+    border:1px solid var(--border);border-left:3px solid var(--gold);
+    border-radius:13px;padding:15px 17px 16px;margin-bottom:13px;
+    transition:border-color .15s ease,transform .15s ease,background .15s ease;}
+  .clip:hover{border-color:var(--border2);border-left-color:var(--gold2);transform:translateY(-2px);
+    background:linear-gradient(180deg,#0e1830,#13203a);}
+  .clip.ce{border-left-color:var(--red);}
+  .clip.ce:hover{border-left-color:#fca5a5;}
+
+  .ctop{display:flex;align-items:center;gap:12px;}
+  .pmark{width:38px;height:38px;border-radius:50%;flex:0 0 auto;background:var(--grad);color:#0f172a;
+    display:flex;align-items:center;justify-content:center;font-size:14px;padding-left:3px;
+    box-shadow:0 2px 14px rgba(245,158,11,.30);}
+  .clip.ce .pmark{background:linear-gradient(135deg,#f87171,#ef4444);color:#fff;box-shadow:0 2px 14px rgba(248,113,113,.26);}
+  .ctitle{font-size:15.5px;font-weight:800;letter-spacing:-.01em;line-height:1.3;}
+  .crange{flex:0 0 auto;margin-left:auto;text-align:right;font-variant-numeric:tabular-nums;}
+  .crange b{display:block;font-size:14px;font-weight:800;color:var(--gold);}
+  .clip.ce .crange b{color:var(--red);}
+  .crange span{font-size:11px;font-weight:600;color:var(--muted2);letter-spacing:.04em;}
+
+  .cwatch{font-size:14.5px;color:#cbd5e1;margin-top:11px;}
+  .cwatch b{color:#fff;font-weight:700;}
+
+  .cmeta{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--muted);
+    border:1px solid var(--border2);border-radius:999px;padding:3.5px 10px;}
+  .tag.won{color:var(--green);border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07);}
+  .tag.lost{color:var(--red);border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07);}
+  .tag.open{color:var(--gold);border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.07);}
+  .tag.ce{color:var(--red);border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07);}
+
+  .howto{color:var(--muted2);font-size:13px;margin-top:20px;padding-left:2px;}
+
+  /* footer nav */
+  .fnav{margin-top:46px;padding-top:24px;border-top:1px solid var(--border);
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .pn{flex:1 1 180px;min-width:150px;display:block;text-decoration:none;
+    border:1px solid var(--border);border-radius:12px;padding:12px 15px;transition:border-color .15s ease,background .15s ease;}
+  .pn:hover{border-color:var(--gold);background:rgba(245,158,11,.06);}
+  .pn s{display:block;text-decoration:none;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:3px;}
+  .pn b{font-size:14.5px;font-weight:800;color:var(--text);}
+  .pn.dim{opacity:.35;pointer-events:none;}
+  .fdone{text-align:center;margin-top:26px;}
+  .fdone .done{font-size:15px;padding:13px 28px;}
+  .fdone p{color:var(--muted2);font-size:12.5px;margin-top:11px;}
+
+  .all{margin-top:30px;text-align:center;}
+  .all a{color:var(--muted);font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px dashed var(--border2);}
+  .all a:hover{color:var(--gold);border-color:var(--gold);}
+
+  @media(max-width:560px){
+    .ctop{flex-wrap:wrap;}
+    .crange{margin-left:50px;text-align:left;width:100%;margin-top:4px;}
+    .bar-ph{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="bar-in">
+  <a class="done" id="doneTop" href="index.html">&larr; Done, back to training</a>
+  <div class="bar-ph" id="barPh"></div>
+</div></div>
+
+<div class="wrap">
+  <div class="kicker" id="kick">Rapid Reach &middot; Closer Training</div>
+  <h1 id="h1"></h1>
+  <p class="lead" id="lead"></p>
+
+  <div class="look"><div class="lbl">What you're listening for</div><p id="look"></p></div>
+  <p class="howto">Each clip opens the real recording in a new tab at the exact second. Watch the window shown, then close that tab and you are right back here.</p>
+
+  <div class="cnt" id="cnt"></div>
+  <div id="clips"></div>
+
+  <div class="fnav" id="fnav"></div>
+
+  <div class="fdone">
+    <a class="done" id="doneBot" href="index.html">&larr; Done, back to training</a>
+    <p id="donesub"></p>
+  </div>
+
+  <div class="all"><a href="calls.html">Or read the full written teardowns in the Film Room</a></div>
+</div>
+
+<script>
+// ---- the six recordings ----
+const C={
+  summit :{n:'Summit Auto Detail',       w:'Michael Strickland', id:'By3AsHiUvZJtQ41Ur1FkrsA5VXKFFaV2', r:'won',  res:'Closed all three'},
+  summit2:{n:'Summit Auto Detail',       w:'Part 2',             id:'L7EW8G-suX8bpLoGm4AD3TBJSF2BSU5e', r:'won',  res:'Closed all three'},
+  divine :{n:'Divine Detailing',         w:'Logan Lamb',         id:'d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_', r:'lost', res:'Lost'},
+  lives  :{n:'Nine Lives Mobile Detailing',w:'Jonatan Benavides',id:'yMayMK3AtszidUrrpRpxZGzxkvMTy4SX', r:'won',  res:'Closed lead gen'},
+  beastly:{n:'Beastly Mobile Car Detailing',w:'Davis',           id:'uyph7tLrjeMu2DJHzsUysK377B11Z-Ws', r:'won',  res:'Closed $750 PPC'},
+  lions  :{n:'Nine Lions',               w:'Arthur Holt',        id:'2ZeQoeqKH1MwtoQgajDy6pio1NG1xRVT', r:'open', res:'Monthly report'}
+};
+
+// ---- phases, in deck order ----
+const P={
+ 1:{name:'Control', h:'Own the first 60 seconds', slide:3,
+    look:'Who sets the agenda in the first minute. A closer who opens with a question or a risk reversal keeps the frame all call. A closer who opens with features never gets it back.',
+    clips:[
+     {c:'beastly',t:'0:00',e:'1:40',ti:'The founder story, aimed at this exact prospect',
+      w:'Started detailing in high school, door to door, $700 a month, scaled to $10K off Google ads. Davis is a one man team still in school. <b>The credibility story contained the prospect’s own starting point,</b> which is the only reason it did not sound like a brag.'},
+     {c:'summit',t:'0:32',e:'1:20',ti:'Risk reversal before anything else',
+      w:'"We show companies what we do before we ask for a dime." The frame is set before a single discovery question gets asked.'},
+     {c:'divine',t:'0:14',e:'1:10',ti:'Making the prospect sell himself',
+      w:'"What about our offer stood out to you?" He answers, and now <b>he</b> is the one on record saying why this matters.'},
+     {c:'summit',t:'35:52',e:'36:30',ti:'The prospect asks his name 36 minutes in',ce:1,
+      w:'Control is not only the opening. <b>Introduce yourself.</b>'}
+    ]},
+ 2:{name:'Discovery', h:'Make them say the number out loud', slide:4,
+    look:'Who is doing the talking. On real discovery the prospect carries 60 to 70 percent of it. Count how often the closer asks instead of tells.',
+    clips:[
+     {c:'summit',t:'2:24',e:'4:47',ti:'The full arc, start to finish',
+      w:'Volume, capacity, daily target, weekly revenue, then the goal. <b>Five answers, almost no talking.</b> This is the one to copy.'},
+     {c:'beastly',t:'1:04',e:'2:45',ti:'The amount and the duration, not just the fact',
+      w:'$150 on Google "until it ran out." $3,000 into Instagram over a year. <b>"It didn’t work" is not discovery.</b> The number and the timeline are, and both get used later in the call.'},
+     {c:'divine',t:'2:50',e:'3:40',ti:'Current, goal, gap in three questions',
+      w:'$4K now, $6K wanted, "so about $2,000?" Fifty seconds to the whole picture.'},
+     {c:'beastly',t:'3:17',e:'3:45',ti:'Capacity commitment before a price exists',
+      w:'"Could you take on 8 by the end of next week?" Answer: "A hundred percent. Let’s go." <b>The yes on the outcome was locked in twelve minutes before the number showed up.</b>'}
+    ]},
+ 3:{name:'Budget', h:'Get their number before you quote yours', slide:6,
+    look:'Where the price comes from. If it comes off our sheet you are defending it. If it comes out of their mouth you are confirming it.',
+    clips:[
+     {c:'summit',t:'1:14',e:'2:00',ti:'The competitor’s price inside two minutes',
+      w:'He had the number before minute three, then used it as the anchor for the rest of the call.'},
+     {c:'summit',t:'6:43',e:'7:40',ti:'Deriving our fee from their ticket',
+      w:'"What would you quote me?" then ten percent of the middle. <b>The price came out of the prospect’s mouth,</b> so there was nothing to argue with.'},
+     {c:'beastly',t:'8:03',e:'9:00',ti:'His menu before our price',
+      w:'$100 basic, $200 premium, $280 to $350 deep interior. Every ROI number for the rest of the call gets built out of Davis’s own menu.'},
+     {c:'beastly',t:'14:38',e:'15:30',ti:'Price quoted in their own product',
+      w:'"<b>Three details covers your entire month.</b>" Best line in the library. Nobody argues with a price stated in a unit they already sell every week.'},
+     {c:'divine',t:'20:58',e:'21:45',ti:'The $950 that was found and never used',ce:1,
+      w:'He learned exactly what the prospect already pays, twenty one minutes in, and <b>did nothing with it.</b>'}
+    ]},
+ 4:{name:'The Pitch', h:'Sell the dream, not the dashboard', slide:7,
+    look:'One product, aimed at the pain they just named. Every extra product you add is another reason to say no.',
+    clips:[
+     {c:'beastly',t:'4:40',e:'6:20',ti:'The pay per click pitch, best version we have',
+      w:'Meta interrupts a scroll so you get volume without intent. Google is somebody typing the need. Then he proves it with his own week, moving to Florida and searching for a house cleaner. <b>Learn this one by heart.</b>'},
+     {c:'beastly',t:'6:26',e:'7:40',ti:'The qualification downsell',
+      w:'At 22 reviews he takes lead gen <b>off</b> the table and says exactly why. Listen to the very next sentence: "You seem pretty young and trustworthy, I’m just going to go out on a limb and trust it."'},
+     {c:'summit',t:'5:22',e:'6:40',ti:'Matched to the bottleneck the prospect named',
+      w:'One product, aimed at the thing he complained about ninety seconds earlier, with proof at his scale.'},
+     {c:'summit',t:'45:55',e:'47:10',ti:'The bundle',
+      w:'The discount is tied to taking all three, not to pressure or a deadline.'},
+     {c:'beastly',t:'13:10',e:'14:30',ti:'Bundled as a subtraction, not an addition',
+      w:'The growth system replaces software he already pays $60 to $80 a month for, so adding it reads as <b>saving</b> money. Then the Road Warrior proof: 2 monthly members to 16 in one month off one text.'},
+     {c:'divine',t:'4:33',e:'5:30',ti:'Talking the buyer off the product he already wanted',ce:1,
+      w:'Same move as Beastly 6:26, with <b>no reason attached.</b> That one bought trust. This one lost the deal.'}
+    ]},
+ 5:{name:'The Ask', h:'Ask for the deal, 3 times', slide:8,
+    look:'Whether he actually asked, and whether he stopped talking afterward. Most lost deals on this page were lost after the yes, not before it.',
+    clips:[
+     {c:'summit',t:'52:35',e:'53:40',ti:'The ask, then the link, on the call',
+      w:'"I can send it, you ready?" Then the Square link goes out while they are still talking. <b>No "I’ll email it over."</b>'},
+     {c:'divine',t:'14:48',e:'16:00',ti:'A clear yes, then eleven more minutes of selling',ce:1,
+      w:'He had the deal and kept talking until it came apart. <b>When they say yes, stop.</b>'},
+     {c:'beastly',t:'23:21',e:'24:30',ti:'Financed instead of isolated',ce:1,
+      w:'$750 was out of range and he was on a payment plan within one turn. Two minutes earlier the prospect had already said part of it was trust, not money. <b>Financing answered the amount and left the real objection untouched.</b>'}
+    ]},
+ 6:{name:'Objections', h:'Isolate before you answer', slide:9,
+    look:'Whether he found out what the objection actually was before answering it. "Is it the money, the timing, or something else?" is the whole phase.',
+    clips:[
+     {c:'lives',t:'36:00',e:'38:51',ti:'The benchmark. Five probes, then a clean release',
+      w:'<b>The single best three minutes in the library.</b> Five separate tests, the answer held every time, so he accepted it, took the yes that existed, and kept the relationship. Watch all of it.'},
+     {c:'lives',t:'8:14',e:'9:30',ti:'A belief dissolved instead of argued',
+      w:'"My market won’t pay more than $129." He did not fight it. He asked how many calls a day the guy gets, and the belief fell apart on its own.'},
+     {c:'summit',t:'40:00',e:'43:00',ti:'The live demo',
+      w:'Highest leverage three minutes in either Summit recording. <b>He stopped explaining and showed it.</b>'},
+     {c:'summit',t:'15:30',e:'16:30',ti:'"I refuse AI," answered with a question',
+      w:'Not a rebuttal. A question. Notice the objection dissolves without ever being argued with.'},
+     {c:'summit',t:'20:58',e:'22:10',ti:'The gatekeeper reframe',
+      w:'A product he had already refused became acceptable by changing what it was <b>for.</b>'},
+     {c:'summit',t:'36:55',e:'38:00',ti:'Downsell allowed, with the cost of waiting attached',
+      w:'He said yes to less and made the delay expensive in the same breath.'},
+     {c:'summit2',t:'2:00',e:'3:30',ti:'Holding a discount under pressure',
+      w:'Asked to cut the rate again, he restated the <b>undiscounted</b> number. The prospect talked himself back to the original deal.'},
+     {c:'summit2',t:'5:30',e:'6:40',ti:'Refusing a guarantee he could not back',
+      w:'He said no to a promise he could not keep and kept the deal anyway.'},
+     {c:'beastly',t:'29:40',e:'30:30',ti:'"It’s almost too good to be true"',
+      w:'"I can make it more expensive if you want me to." <b>Timing is everything on that line.</b>'},
+     {c:'beastly',t:'30:32',e:'31:50',ti:'The ad budget objection, answered before it was raised',
+      w:'Their Google account, their card, their app, our flat fee either way. Say this before they think to ask.'},
+     {c:'beastly',t:'17:43',e:'19:20',ti:'An objection the setter invented out of nothing',ce:1,
+      w:'"The main reason I was okay with going with y’all is because y’all had the two weeks free." <b>Nine minutes of this call went to undoing one sentence a setter said on the phone.</b> This is why setters do not quote terms.'}
+    ]},
+ 7:{name:'Commitment', h:'Never end with "I’ll reach out"', slide:13,
+    look:'Whether the call ends with a date on a calendar, and who owns the next step. "Text me whenever" means the deal is the prospect’s problem now.',
+    clips:[
+     {c:'lives',t:'55:20',e:'56:30',ti:'The model to copy',
+      w:'A booked two week ROI review with a stated purpose: here is what you spent, here is what you made. <b>A date, a reason, and the prospect wants the meeting.</b>'},
+     {c:'summit2',t:'24:00',e:'25:30',ti:'The commitment as a numbered chain',
+      w:'You sign, then I send the payment plan, then I send the invoice. He knows the order, the timing, and who owns each step.'},
+     {c:'summit',t:'53:36',e:'54:30',ti:'Agreement forms sent while still on the call',
+      w:'Sent during, confirmed received, not "I’ll get that over to you tonight."'},
+     {c:'beastly',t:'44:02',e:'45:20',ti:'A deal protected, but not landed',
+      w:'Same time tomorrow, personal cell number, intake form sent so the build starts before the money clears. <b>Do all of this. Then still close on the first call.</b>'},
+     {c:'divine',t:'24:39',e:'25:30',ti:'"I’ll reach out"',ce:1,
+      w:'No sequence, no owner, no time. <b>The deal died right here</b> and the call sounded fine.'}
+    ]}
+};
+
+const sec=s=>s.split(':').reduce((a,b)=>a*60+(+b),0);
+const q=new URLSearchParams(location.search);
+let n=parseInt(q.get('p'),10); if(!(n>=1&&n<=7)) n=1;
+const ph=P[n];
+
+const back='index.html?slide='+ph.slide;
+document.getElementById('doneTop').href=back;
+document.getElementById('doneBot').href=back;
+document.getElementById('kick').textContent='Watch · Phase '+n+' · '+ph.name;
+document.getElementById('h1').innerHTML='Phase '+n+' <span class="gold">'+ph.name+'</span>';
+document.getElementById('lead').textContent=ph.h;
+document.getElementById('look').innerHTML=ph.look;
+document.getElementById('barPh').textContent='Phase '+n+' · '+ph.name;
+document.getElementById('donesub').textContent='Takes you straight back to Phase '+n+' in the playbook.';
+document.title='Watch Phase '+n+' · '+ph.name+' · Rapid Reach';
+
+const ce=ph.clips.filter(c=>c.ce).length;
+document.getElementById('cnt').textContent=ph.clips.length+' clip'+(ph.clips.length>1?'s':'')+
+  (ce?' · including '+ce+' counter-example'+(ce>1?'s':''):'');
+
+document.getElementById('clips').innerHTML=ph.clips.map(c=>{
+  const r=C[c.c];
+  return '<a class="clip'+(c.ce?' ce':'')+'" target="_blank" rel="noopener" '+
+   'href="https://fathom.video/share/'+r.id+'?timestamp='+sec(c.t)+'">'+
+   '<div class="ctop"><div class="pmark">▶</div>'+
+     '<div class="ctitle">'+c.ti+'</div>'+
+     '<div class="crange"><b>'+c.t+' – '+c.e+'</b><span>'+Math.round(sec(c.e)-sec(c.t))+' sec</span></div>'+
+   '</div>'+
+   '<div class="cwatch">'+c.w+'</div>'+
+   '<div class="cmeta">'+(c.ce?'<span class="tag ce">Counter-example</span>':'')+
+     '<span class="tag">'+r.n+'</span><span class="tag">'+r.w+'</span>'+
+     '<span class="tag '+r.r+'">'+r.res+'</span></div></a>';
+}).join('');
+
+document.getElementById('fnav').innerHTML=
+  (n>1 ?'<a class="pn" href="clip.html?p='+(n-1)+'"><s>&larr; Previous</s><b>Phase '+(n-1)+' · '+P[n-1].name+'</b></a>'
+       :'<span class="pn dim"><s>&larr; Previous</s><b>Start of the call</b></span>')+
+  (n<7 ?'<a class="pn" href="clip.html?p='+(n+1)+'" style="text-align:right;"><s>Next &rarr;</s><b>Phase '+(n+1)+' · '+P[n+1].name+'</b></a>'
+       :'<span class="pn dim" style="text-align:right;"><s>Next &rarr;</s><b>End of the call</b></span>');
+</script>
+</body>
+</html>
