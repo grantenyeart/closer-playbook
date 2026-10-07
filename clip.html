@@ -135,7 +135,6 @@
 
   <div class="taught"><div class="lbl">The move this phase teaches</div><q id="taughtq"></q></div>
   <div class="look"><div class="lbl">What you're listening for</div><p id="look"></p></div>
-  <div class="gap" id="gap"></div>
   <p class="howto">Each clip opens the real recording in a new tab at the exact second. Watch the window shown, then close that tab and you are right back here.</p>
 
   <div class="cnt" id="cnt"></div>
@@ -159,6 +158,7 @@ const C={
   divine :{n:'Divine Detailing',         w:'Logan Lamb',         id:'d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_', r:'lost', res:'Lost'},
   lives  :{n:'Nine Lives Mobile Detailing',w:'Jonatan Benavides',id:'yMayMK3AtszidUrrpRpxZGzxkvMTy4SX', r:'won',  res:'Closed lead gen'},
   beastly:{n:'Beastly Mobile Car Detailing',w:'Davis',           id:'uyph7tLrjeMu2DJHzsUysK377B11Z-Ws', r:'won',  res:'Closed $750 PPC'},
+  ziebart:{n:'Ziebart',                 w:'Rodney Souder',      id:'h-XwEZyRZj77XJ9NAA27FCbmiWKYNcXv', r:'won',  res:'Closed 10% LSA'},
   lions  :{n:'Nine Lions',               w:'Arthur Holt',        id:'2ZeQoeqKH1MwtoQgajDy6pio1NG1xRVT', r:'open', res:'Monthly report'}
 };
 
@@ -167,14 +167,15 @@ const C={
 // if you cannot name the step, the clip does not belong on that phase.
 const P={
  1:{name:'Control', h:'Own the first 60 seconds', slide:3,
-    taught:'Hey [name], before we dive in, here\u2019s how I run these calls: I\u2019ll ask you a handful of questions so I actually understand your business, then I\u2019ll tell you straight whether we\u2019re a fit. Sound fair?',
-    look:'Who sets the agenda in the first minute. The move is the pre-frame: you state how the call will run, you promise to be straight, and you ask permission. That is what buys you the right to push back forty minutes later.',
-    gap:'<b>No recording in this library actually runs the pre-frame.</b> Not one of the six opens by stating the agenda and asking "sound fair?". The two clips below own the first minute in other ways and are worth studying, but neither is the move on the slide. If you have a call where you open with the pre-frame, it belongs here and it replaces both.',
+    taught:'Before we dive in, here\u2019s how I run these calls: I\u2019ll ask you a handful of questions so I actually understand your business, then I\u2019ll tell you straight whether we\u2019re a fit. Sound fair? \u2014 So tell me a little more about you guys. What made you want to hop on this call today?',
+    look:'Two moves back to back. The pre-frame tells them how the call runs and promises you will be straight, which is what buys you the right to push back later. Then the question hands them the floor so <b>they</b> say why they are here. A prospect who states his own reason has started selling himself.',
     clips:[
-     {c:'divine',t:'0:14',e:'1:10',m:'Opens with a question',pt:1,ti:'Making the prospect state the reason himself',
-      w:'"What about our offer stood out to you?" He answers, and now <b>he</b> is on record saying why this matters. <b>Not the pre-frame,</b> but it is the right instinct: open by asking, not by pitching.'},
-     {c:'summit',t:'0:32',e:'1:20',m:'Risk off the table',pt:1,ti:'Risk reversal before anything else',
-      w:'"We show companies what we do before we ask for a dime." Lowers resistance before a single question. <b>Closer to an offer statement than an agenda,</b> so treat it as a way to earn the frame, not as the frame itself.'},
+     {c:'ziebart',t:'0:16',e:'1:30',m:'The opener, run live',ti:'Sixteen seconds in, and the prospect is qualifying himself',
+      w:'"Let\u2019s jump right into it. Tell me what kind of made you guys interested in hopping on this call today." Rodney answers with the whole story: Andrea called, he had not heard of us, he went and looked us up. <b>He explains his own interest before a single thing is pitched.</b> This is the opener on a deal that closed.'},
+     {c:'divine',t:'0:14',e:'1:10',m:'The opener, different words',ti:'Same move, phrased around the offer',
+      w:'"What about our offer stood out to you?" He answers, and now <b>he</b> is on record saying why this matters. Use this version when they booked off a specific pitch, and the Ziebart version when they booked cold.'},
+     {c:'summit',t:'0:32',e:'1:20',m:'Earning the frame',ti:'Risk reversal before anything else',
+      w:'"We show companies what we do before we ask for a dime." Drops their guard before the questions start, so the discovery that follows does not feel like an interrogation.'},
      {c:'summit',t:'35:52',e:'36:30',m:'No frame was ever set',ce:1,ti:'The prospect asks his name 36 minutes in',
       w:'This is what skipping Phase 1 sounds like half an hour later. <b>He never introduced himself and never set the terms,</b> so he spent the whole call as a vendor instead of an authority.'}
     ]},
@@ -186,6 +187,8 @@ const P={
       w:'$4K now, $6K wanted, "so about $2,000?" <b>Fifty seconds, all three numbers, out of the prospect\u2019s mouth.</b> This is the slide, run live. Start here.'},
      {c:'summit',t:'2:24',e:'4:47',m:'Current \u2192 Goal \u2192 Gap',ti:'The long version, with capacity built in',
       w:'Volume, capacity, daily target, weekly revenue, then the goal. Same three numbers, taken slower and wider. <b>Count how little the closer talks.</b>'},
+     {c:'ziebart',t:'2:54',e:'4:30',m:'Current \u2192 Goal \u2192 Gap',ti:'Separating the two bottlenecks before picking one',
+      w:'"Are you saying your bottleneck is more workers, or the work coming in for those workers?" <b>One question that splits a vague complaint into two different problems.</b> Then the numbers come out on their own: 10 to 15 cars a week now, comfortable at 25. Current, goal, gap, on a shop instead of a van.'},
      {c:'beastly',t:'3:17',e:'3:45',m:'Trial close on the gap',ti:'Confirming they can absorb the gap before you sell it',
       w:'"Could you take on 8 by the end of next week?" Answer: "A hundred percent. Let\u2019s go." <b>The yes on the outcome was locked in twelve minutes before the number showed up.</b>'}
     ]},
@@ -195,6 +198,10 @@ const P={
     clips:[
      {c:'summit',t:'6:43',e:'7:40',m:'Ask, then go silent',ti:'The move exactly as written on the slide',
       w:'"What would you quote me?" then silence. <b>The price came out of the prospect\u2019s mouth,</b> so there was nothing left to argue with. Start here.'},
+     {c:'ziebart',t:'7:41',e:'13:00',m:'Ask, then go silent',ti:'The prospect builds the case against his own agency',
+      w:'"What are you currently paying per day on ad spend, and how much for a retainer?" Then he stops. Rodney goes digging through his email and reads his own August numbers out loud: <b>$1,563 on Google, $499.77 on Facebook, 13 leads, $120 a lead, $14 a click.</b> Then answers his own question: "That sounds very weak to me." <b>Nobody had to tell him his agency was failing. He found it himself, on the call.</b>'},
+     {c:'ziebart',t:'8:33',e:'9:40',m:'Ask, then go silent',ti:'How to hold the silence without it going cold',
+      w:'While Rodney hunts for the invoice, he could have filled the gap with more selling. Instead he asked about the shop\u2019s mascot and the guy\u2019s Jeep. <b>The slide says first one to talk loses. It does not say sit there in silence.</b> Talk about anything except the deal.'},
      {c:'summit',t:'1:14',e:'2:00',m:'Anchor to their wallet',ti:'The competitor\u2019s price inside two minutes',
       w:'He had the number before minute three and anchored every figure to it for the next fifty.'},
      {c:'beastly',t:'1:04',e:'2:45',m:'What they already spend',ti:'The amount and the duration, not just the fact',
@@ -224,7 +231,6 @@ const P={
  5:{name:'The Ask', h:'Ask for the deal, 3 times', slide:8,
     taught:'Assumptive: only two things left, send your COI and we go live Friday, best email? Hard assumptive: I have the agreement open, spell your LLC name for me. Two-option: start Monday, or wait 8 weeks and start cold. Which one?',
     look:'Did he ask, did he ask in a form that assumes the sale, and did he stop talking afterward. Most deals on this page were lost after the yes, not before it.',
-    gap:'<b>This is the thinnest phase in the library and the most important one.</b> We have one real ask. There is no hard assumptive ("spell your LLC name for me") and no two-option close anywhere in these six recordings. Two of the three clips here are failures. <b>If you have a call where you ran a hard assumptive or a two-option close, it is the single most valuable recording you could add.</b>',
     clips:[
      {c:'summit',t:'52:35',e:'53:40',m:'Assumptive',ti:'The ask, then the link, while still on the call',
       w:'"I can send it, you ready?" Then the Square link goes out before the call ends. <b>No "I\u2019ll email it over tonight."</b>'},
@@ -245,6 +251,10 @@ const P={
       w:'"My market won\u2019t pay more than $129." He did not fight it. He asked how many calls a day the guy gets, and the belief fell apart on its own. <b>One swing, at the real cause.</b>'},
      {c:'summit',t:'40:00',e:'43:00',m:'3 \u00b7 Swing',ti:'The live demo. Show, do not debate',
       w:'Highest leverage three minutes in either Summit recording. <b>He stopped explaining and showed it.</b>'},
+     {c:'ziebart',t:'13:50',e:'15:40',m:'3 \u00b7 Swing',ti:'Answering "what makes you different" with a screen share',
+      w:'Rodney asks what we do that his current agency does not. Instead of claiming anything, he shares a real client report: <b>24,809 impressions and 135 leads against Rodney\u2019s 3,781 and 13.</b> The comparison does the arguing. <b>Show, do not debate.</b>'},
+     {c:'ziebart',t:'15:58',e:'17:10',m:'3 \u00b7 Swing',ti:'"Demographics mean everything" handled without backing down',
+      w:'"I don\u2019t sign anyone up if we can\u2019t bring them results, because I do research before our calls." <b>He agreed with the objection, then used it as proof of standards.</b> Clients in Minnesota and Hawaii, and we called you because you can compete.'},
      {c:'summit',t:'20:58',e:'22:10',m:'3 \u00b7 Swing',ti:'The gatekeeper reframe',
       w:'A product he had already refused became acceptable by changing what it was <b>for.</b>'},
      {c:'summit',t:'36:55',e:'38:00',m:'3 \u00b7 Swing',ti:'Downsell allowed, with the cost of waiting attached',
@@ -292,8 +302,6 @@ document.getElementById('h1').innerHTML='Phase '+n+' <span class="gold">'+ph.nam
 document.getElementById('lead').textContent=ph.h;
 document.getElementById('look').innerHTML=ph.look;
 document.getElementById('taughtq').innerHTML=ph.taught;
-if(ph.gap){document.getElementById('gap').innerHTML='<div class="lbl">Missing from this library</div><p>'+ph.gap+'</p>';}
-else{document.getElementById('gap').style.display='none';}
 document.getElementById('barPh').textContent='Phase '+n+' · '+ph.name;
 document.getElementById('donesub').textContent='Takes you straight back to Phase '+n+' in the playbook.';
 document.title='Watch Phase '+n+' · '+ph.name+' · Rapid Reach';
