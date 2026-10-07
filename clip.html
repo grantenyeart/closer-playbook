@@ -100,6 +100,7 @@
     border-left:2px solid rgba(245,158,11,.4);padding-left:12px;}
   .ssay:before,.ssay:after{content:'"';}
   .ssay.plain:before,.ssay.plain:after{content:'';}
+  .saynote{color:var(--muted2);font-size:13.5px;margin-top:9px;}
   .ohead{display:flex;align-items:center;gap:10px;margin:40px 0 13px;padding-top:20px;border-top:1px solid var(--border);}
   .ohead b{font-size:15px;font-weight:800;color:var(--red);}
   .ohead span{font-size:12.5px;color:var(--muted2);}
@@ -186,8 +187,7 @@ const P={
     look:'Two moves, back to back. You tell them how the call runs so the questions never feel like an interrogation, then you hand them the floor so <b>they</b> say why they are here. A prospect who states his own reason has already started selling himself.',
     steps:[
      {l:'Set the frame', say:'Hey [name], before we dive in, here’s how I run these calls: I’ll ask you a handful of questions so I actually understand your business, then I’ll tell you straight whether we’re a fit. Sound fair?',
-      clips:[{c:'summit',t:'0:32',e:'1:20',m:'Frame set',ti:'Risk reversal before anything else',
-        w:'"We show companies what we do before we ask for a dime." Their guard drops before the questions start, which is the whole reason you set the frame first.'}]},
+      clips:[]},
      {l:'Then hand them the floor, so they qualify themselves', say:'Perfect. So tell me a little more about you guys. What made you want to hop on this call today?',
       clips:[
        {c:'ziebart',t:'0:16',e:'1:30',m:'The opener',ti:'Sixteen seconds in, and he is explaining himself',
@@ -358,6 +358,7 @@ document.getElementById('steps').innerHTML=ph.steps.map((s,i)=>
   '<div class="step"><div class="snum">'+(i+1)+'</div><div class="sbody">'+
   '<div class="slabel">'+s.l+'</div>'+
   (s.say?'<q class="ssay'+(s.plain?' plain':'')+'">'+s.say+'</q>':'')+
+  (s.clips.length?'':'<p class="saynote">Say it, get the "sound fair", move straight into step 2.</p>')+
   '</div></div>'+s.clips.map(card).join('')
 ).join('');
 
