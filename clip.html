@@ -177,6 +177,7 @@ const C={
   divine :{n:'Divine Detailing',          w:'Logan Lamb',         id:'d5oEYu9rzr6w6j5m37jLpK7a3yNZFp7_', r:'lost', res:'Lost'},
   lives  :{n:'Nine Lives Mobile Detailing',w:'Jonatan Benavides', id:'yMayMK3AtszidUrrpRpxZGzxkvMTy4SX', r:'won',  res:'Closed lead gen'},
   beastly:{n:'Beastly Mobile Car Detailing',w:'Davis',            id:'uyph7tLrjeMu2DJHzsUysK377B11Z-Ws', r:'won',  res:'Closed $750 PPC'},
+  jayce  :{n:'Jayce Owens',               w:'Existing LSA client', id:'WijEy-y44yzQynhg5X1kZDg6UizQXp4q', r:'won', res:'Upsold to $750 PPC'},
   ziebart:{n:'Ziebart',                   w:'Rodney Souder',      id:'h-XwEZyRZj77XJ9NAA27FCbmiWKYNcXv', r:'won',  res:'Closed 10% LSA'}
 };
 
@@ -233,7 +234,9 @@ const P={
 
      {l:'When the number comes back bad, react to it, then say it back', say:'No kidding. Two bookings? In the whole past month? Yeah, two bookings is incredibly not okay.',
       clips:[{c:'divine',t:'20:38',e:'21:25',m:'Make them feel it',ti:'The best forty seconds of pain work in the library',
-        w:'He asks it plainly: <b>"How many clients do you think you did in the past month?"</b> Answer: "I got two bookings." He does not move on and he does not soften it. First the reaction, <b>"no kidding,"</b> then he says the number back to him: <b>"two bookings is incredibly not okay."</b> And Logan agrees out loud, <i>"no, it is not right at all."</i><br><br>Three moves in forty seconds. <b>Ask, react so they hear how bad it sounds, then repeat their pain back until they agree to it.</b> A prospect who has just agreed his own number is not okay has given you the reason to buy. Note this call was lost later for other reasons. <b>This stretch of it is as good as it gets.</b>'}]}
+        w:'He asks it plainly: <b>"How many clients do you think you did in the past month?"</b> Answer: "I got two bookings." He does not move on and he does not soften it. First the reaction, <b>"no kidding,"</b> then he says the number back to him: <b>"two bookings is incredibly not okay."</b> And Logan agrees out loud, <i>"no, it is not right at all."</i><br><br>Three moves in forty seconds. <b>Ask, react so they hear how bad it sounds, then repeat their pain back until they agree to it.</b> A prospect who has just agreed his own number is not okay has given you the reason to buy. Note this call was lost later for other reasons. <b>This stretch of it is as good as it gets.</b>'},
+       {c:'jayce',t:'0:26',e:'1:40',m:'Make them read it out',ti:'An existing client reads his own decline aloud',
+        w:'"Do you still have those numbers of your profits over the past couple of months?" Jayce reads them himself: <b>June $7,000, July $5,500, August $11,000, September $7,300, October $1,200 so far.</b> Grant never says the word "down." He did not have to. <b>On an upsell this is the discovery phase: make them say their own trend out loud and the gap announces itself.</b>'}]}
     ],
     more:[
      {c:'ziebart',t:'2:28',e:'3:10',m:'Capacity',ti:'"How much workload can you guys take on?"',
@@ -257,7 +260,9 @@ const P={
      {l:'Anchor everything to their wallet', say:'So you are already putting $X a month at this. Let’s talk about what that same money should be doing.',
       clips:[
        {c:'beastly',t:'8:16',e:'9:10',m:'Anchor',ti:'Their ticket before our price',
-        w:'$100, $200, $280 to $350. Every number for the rest of the call gets built out of his own menu.'}]}
+        w:'$100, $200, $280 to $350. Every number for the rest of the call gets built out of his own menu.'},
+       {c:'jayce',t:'10:26',e:'11:20',m:'Anchor the discount',ti:'Holding a price by naming the one you are not charging',
+        w:'Jayce checks: "when we talked last time you said it was 750?" Answer: <b>"Still 750. Typically it is a thousand for new clients, but we have worked with you guys, we want to keep your business, so we will keep that at 750."</b> The number never moves, and it now reads as something he is being given rather than something he is paying.'}]}
     ]},
 
  4:{name:'The Pitch', h:'Sell the dream, not the dashboard', slide:7,
@@ -285,11 +290,18 @@ const P={
       w:'The discount is tied to taking all three, not to pressure or a deadline.'}]},
 
  5:{name:'The Ask', h:'Ask for the deal, 3 times', slide:8,
-    look:'Did you ask, did you ask in a form that assumes the sale, and did you stop talking afterward. If the assumptive does not land, the next two are <i>"I’ve got the agreement open on my screen, spell your LLC name for me"</i> and <i>"start Monday with data before your contract ends, or wait 8 weeks and start cold, which one?"</i>',
+    look:'Did you get them to agree to the plan before you said the number, did you ask in a form that assumes the sale, and did you stop talking afterward. If the assumptive does not land, the next two are <i>"I have the agreement open on my screen, spell your LLC name for me"</i> and <i>"start Monday with data before your contract ends, or wait 8 weeks and start cold, which one?"</i>',
     steps:[
-     {l:'Ask assumptively, then stop talking', say:'Only two things left, send your COI and we go live Friday. Best email?',
-      clips:[{c:'summit',t:'52:35',e:'53:40',m:'Assumptive',ti:'The ask, then the link, while still on the call',
-        w:'"I can send it, you ready?" Then the Square link goes out before the call ends. <b>No "I’ll email it over tonight."</b>'}]}
+     {l:'Get them to agree to the plan before you name the number', say:'How do you feel about this being the route? You think it is the best way to go?',
+      clips:[{c:'jayce',t:'6:10',e:'7:05',m:'Agreement first',ti:'Asking for the yes on the plan, not the price',
+        w:'"How do you guys feel still about the pay per click campaign? You think it is the best route to go down?" <b>He asks for agreement on the direction four minutes before the number comes up.</b> Once a prospect has said out loud that this is the right plan, price is a detail to solve, not a decision to make.'}]},
+
+     {l:'Then ask assumptively, and send it while you are still on the call', say:'Only two things left, send your COI and we go live Friday. Best email?',
+      clips:[
+       {c:'jayce',t:'20:56',e:'21:50',m:'Assumptive',ti:'No question about whether, only where to send it',
+        w:'<b>"I\u2019ll send it over real quick. Tell me the email you want me to send this over to?"</b> There is no "does that sound good," no "do you want to think about it." The only thing left on the table is an email address. <b>Current pricing, real upsell, closed.</b>'},
+       {c:'summit',t:'52:35',e:'53:40',m:'Assumptive',ti:'The ask, then the link, before the call ends',
+        w:'"I can send it, you ready?" Then the Square link goes out while they are still talking.'}]}
     ],
     counter:{c:'divine',t:'14:48',e:'16:00',m:'Asked, then kept selling',ti:'A clear yes, then eleven more minutes',
       w:'He had the deal and talked until it came apart. <b>When they say yes, stop.</b>'},
@@ -316,6 +328,10 @@ const P={
       clips:[{c:'ziebart',t:'13:50',e:'15:40',m:'Show, do not debate',ti:'"What makes you different" answered with a report',
         w:'Instead of claiming anything he shares a real client report: <b>24,809 impressions and 135 leads against Rodney’s 3,781 and 13.</b> The comparison does the arguing.'}]}
     ],
+     {l:'When they ask for something that will cost them money, say so', say:'I can set that up for you, but I would advise against it, and here is why.',
+      clips:[{c:'jayce',t:'22:34',e:'25:30',m:'Hold the position',ti:'Talking a client out of what he just asked for',
+        w:'Jayce wants a booking gap so nobody can book same day. Grant could just say yes. Instead he does the math out loud: <b>"$333 a day is 10K months. You get one or two same days, that is a 10K month just on same days."</b> Then the line the whole call rests on: <b>"I am always going to tell you what is going to best fit your company, not what is going to best make you comfortable."</b><br><br>Then he sets up the booking gap anyway, on Jayce\u2019s calendar rules. <b>Push back with the number, state the principle, then give them what they asked for.</b> That is what the Phase 1 promise buys you twenty five minutes later.'}]},
+
     counter:{c:'beastly',t:'23:21',e:'24:30',m:'Skipped Isolate entirely',ti:'Financed an objection instead of isolating it',
       w:'$750 was out of range and he was on a payment plan within one turn. <b>Two minutes earlier the prospect had already said part of it was trust, not money.</b> One "other than the money, is there anything else?" would have found it.'},
     more:[
